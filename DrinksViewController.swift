@@ -78,14 +78,33 @@ extension DrinksViewController {
                 print(response.result)
                 self.drinks.removeAll()
                 do {
-                    
+                    let myResult = try? JSON(data: response.data!)
+                    for item in myResult!["drinks"].arrayValue {
+                        let name = item["strDrink"].stringValue
+                        let category = item["strCategory"].stringValue
+                        let instruction = item["strInstructions"].stringValue
+                        let glass = item["strGlass"].stringValue
+                        let drinkThumb = item["strDrinkThumb"].stringValue
+                        let ingredient1 = item["strIngredient1"].stringValue
+                        let ingredient2 = item["strIngredient2"].stringValue
+                        let ingredient3 = item["strIngredient3"].stringValue
+                        let ingredient4 = item["strIngredient4"].stringValue
+                        let ingredient5 = item["strIngredient5"].stringValue
+                        let ingredient6 = item["strIngredient6"].stringValue
+                        let measure1 = item["strMeasure1"].stringValue
+                        let measure2 = item["strMeasure2"].stringValue
+                        let measure3 = item["strMeasure3"].stringValue
+                        let measure4 = item["strMeasure4"].stringValue
+                        let measure5 = item["strMeasure5"].stringValue
+                        let measure6 = item["strMeasure6"].stringValue
+                        self.drinks.append(Drinks.init(strDrink: name, strCategory: category, strInstructions: instruction, strGlass: glass, strDrinkThumb: drinkThumb, strIngredient1: ingredient1, strIngredient2: ingredient2, strIngredient3: ingredient3, strIngredient4: ingredient4, strIngredient5: ingredient5, strIngredient6: ingredient6, strMeasure1: measure1, strMeasure2: measure2, strMeasure3: measure3, strMeasure4: measure4, strMeasure5: measure5, strMeasure6: measure6))
+                    }
                 }
             case .failure:
                 let alert = UIAlertView()
                 alert.title = "no internet connection!"
                 alert.show()
             }
-            
         }
     }
 }
