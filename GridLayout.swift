@@ -1,8 +1,8 @@
 //
 //  GridLayout.swift
-//  ProjectMeals&DrinksApp
+//  ProjectMeals&DrinksAppVer1.2
 //
-//  Created by Marko Zivanovic on 1.1.23..
+//  Created by Marko Zivanovic on 6.1.23..
 //
 
 import UIKit
@@ -13,11 +13,12 @@ class GridLayout: UICollectionViewFlowLayout {
         super.init()
         commonInit()
     }
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         commonInit()
     }
-    
+
     func commonInit() {
         self.itemSize = CGSize(width: 100, height: 100)
         self.minimumInteritemSpacing = 5
