@@ -1,8 +1,8 @@
 //
 //  GridLayout.swift
-//  ProjectMeals&DrinksAppVer1.2
+//  MealsAndDrinksApp
 //
-//  Created by Marko Zivanovic on 6.1.23..
+//  Created by Marko Zivanovic on 2.12.22..
 //
 
 import UIKit
@@ -24,6 +24,6 @@ class GridLayout: UICollectionViewFlowLayout {
         self.minimumInteritemSpacing = 5
         self.minimumLineSpacing = 5
         self.sectionInset = .zero
-        self.scrollDirection = .vertical
+        self.scrollDirection = .vertical 
     }
 }
