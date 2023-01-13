@@ -1,9 +1,4 @@
-//
-//  ViewController.swift
-//  ProjectMeals&DrinksAppVer1.2
-//
-//  Created by Marko Zivanovic on 6.1.23..
-//
+
 
 import UIKit
 
@@ -14,7 +9,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpButtons()
+         setUpButtons()
     }
     
    // MARK: LinearGradient Main ViewController
@@ -35,17 +30,33 @@ class ViewController: UIViewController {
         mealButton.layer.cornerRadius = 20
         drinkButton.clipsToBounds = true
         mealButton.clipsToBounds = true
-        drinkButton.addTarget(self, action: #selector(tapDrinks), for: .touchUpInside)
+        drinkButton.addTarget(self, action: #selector(tappDrinks), for: .touchUpInside)
+        mealButton.addTarget(self, action: #selector(tappMeals), for: .touchUpInside)
     }
     
-    // MARK: Sending To The Next Drinks Screen
-    @objc private func tapDrinks() {
-        if let vc = UIStoryboard.init(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "DrinksViewController") as? DrinksViewController {
+    // MARK: Sending To The Next Drink Screen
+    @objc private func tappDrinks() {
+        // Kako da posalje na sledeci ekran?!
+        if let vc = UIStoryboard.init(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "DrinksViewController") as? DrinksViewController{
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
-//MARK: Sending To The Nest Meals Screen
+    // MARK: Sending To The Next Meal Screen
+    @objc private func tappMeals() {
+        if let mvc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MealsViewController") as? MealsViewController {
+            self.navigationController?.pushViewController(mvc, animated: true)
+        }
+    }
+    
+    @objc private func selectedCoctail() {
+
+    }
     
 }
+
+
+
+
+
 
