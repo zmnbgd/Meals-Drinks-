@@ -53,6 +53,7 @@ extension MealsViewController {
     private func setUpTableViewCollection() {
         let nib = UINib(nibName: MealTableViewCell.mealCellIdentifier, bundle: nil)
         meals.register(nib, forCellReuseIdentifier: MealTableViewCell.mealCellIdentifier)
+        meals.rowHeight = 200
     }
 }
 
