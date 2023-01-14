@@ -74,6 +74,19 @@ extension MealsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//MARK: Interaction With TableViewCell
+
+extension MealsViewController {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let selectedMeal = meals1[indexPath.row]
+        if let dmvc = storyboard?.instantiateViewController(withIdentifier: "MealsDetailViewController") as? MealsDetailViewController {
+            dmvc.selectedMeals = selectedMeal
+            self.navigationController?.pushViewController(dmvc, animated: true)
+        }
+    }
+}
+
 //MARK: Get API Call With Alamofire
 extension MealsViewController {
     func mealsFetch() {
